@@ -236,12 +236,14 @@ function HeatmapApp() {
     const querySnapshot = await getDocs(collection(db, 'crimes'));
     const crimes = querySnapshot.docs.map(doc => {
       let data = doc.data();
+      const formattedDate = formatDate(data.data);
       return {
         position: new window.google.maps.LatLng(data.latlong.latitude, data.latlong.longitude),
         tipo: data.tipo,
         titulo: data.titulo,
         //data: formatTimestamp(data.data),
         data: data.data,
+        formattedDate: formattedDate, // Adiciona a data formatada para exibição
         portal: data.portal,
         endereco: data.endereco,
         url: data.url,
@@ -285,6 +287,12 @@ function HeatmapApp() {
     }
   };
 
+  const formatDate = (timestamp) => {
+  const date = timestamp.toDate();
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString('pt-BR', options);
+  };
+  
   const formatTimestamp = (timestamp) => {
     const date = timestamp.toDate(); // Converte o Timestamp para um objeto Date
     return date.toLocaleDateString('pt-BR', {
