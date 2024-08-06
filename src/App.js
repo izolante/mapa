@@ -79,21 +79,27 @@ function HeatmapApp() {
           if (crime.tipo) {
             switch (crime.tipo) {
               case 'Assalto':
+              case 'assalto':
                 iconUrl = 'https://i.imgur.com/24TRGv0.png';
                 break;
               case 'Homicídio':
+              case 'homicídio':
                 iconUrl = 'https://i.imgur.com/tgccQjG.png';
                 break;
               case 'Posse ilegal de arma':
+              case 'posse ilegal de arma':
                 iconUrl = 'https://i.imgur.com/FT5Yrn2.png';
                 break;
               case 'Furto':
+              case 'furto':
                 iconUrl = 'https://i.imgur.com/FYKZa0w.png';
                 break;
               case 'Tráfico de drogas':
+              case 'tráfico de drogas':
                 iconUrl = 'https://i.imgur.com/zT8VEQF_d.webp?maxwidth=760&fidelity=grand';
                 break;
               case 'Agressão':
+              case 'agressão':
                 iconUrl = 'https://i.imgur.com/tu6pNDh.png';
                 break;  
               default:
@@ -410,7 +416,7 @@ function HeatmapApp() {
             <select id="filter-portal" value={filterPortal} onChange={handlePortalChange} style={selectStyle}>
               <option value="">Todos</option>
               <option value="O Nacional">O Nacional</option>
-              <option value="Rádio Uirapuru">Rádio Uirapuru</option>
+              <option value="Uirapuru">Uirapuru</option>
             </select>
           </div>
           <div style={selectContainerStyle}>
