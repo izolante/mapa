@@ -252,7 +252,7 @@ function HeatmapApp() {
     );
 
     // Coleta todos os tipos de crimes para preencher o combobox
-    const uniqueCrimeTypes = [...new Set(crimes.map(crime => crime.tipo))];
+    const uniqueCrimeTypes = [...new Set(crimes.map(crime => crime.tipo))].sort();
     setCrimeTypes(uniqueCrimeTypes);
 
     // Filtra os crimes de acordo com os filtros selecionados
