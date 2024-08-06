@@ -240,7 +240,8 @@ function HeatmapApp() {
         position: new window.google.maps.LatLng(data.latlong.latitude, data.latlong.longitude),
         tipo: data.tipo,
         titulo: data.titulo,
-        data: formatTimestamp(data.data),
+        //data: formatTimestamp(data.data),
+        data: data.data,
         portal: data.portal,
         endereco: data.endereco,
         url: data.url,
@@ -257,7 +258,7 @@ function HeatmapApp() {
 
     // Filtra os crimes de acordo com os filtros selecionados
     const filteredCrimes = crimes.filter(crime => {
-      const crimeYear = new Date(crime.data).getFullYear();
+      const crimeYear = crime.data.toDate().getFullYear();
       return (
         (!filterYear || crimeYear === parseInt(filterYear)) &&
         (!filterPortal || crime.portal === filterPortal) &&
