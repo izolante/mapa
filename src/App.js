@@ -125,7 +125,7 @@ function HeatmapApp() {
                 <h3><strong>${crime.tipo}</strong></h3>
                 <p><strong>Manchete:</strong> ${crime.titulo}</p>
                 <p><strong>Endereço aproximado:</strong> ${crime.endereco}</p>
-                <p><strong>Data da notícia:</strong> ${crime.data}</p>
+                <p><strong>Data da notícia:</strong> ${crime.formattedDate}</p>
                 <p><strong>Noticiado por:</strong> ${crime.portal}</p>
                 <p><button style=
                 "background-color: #007bff;
@@ -243,7 +243,7 @@ function HeatmapApp() {
         titulo: data.titulo,
         //data: formatTimestamp(data.data),
         data: data.data,
-        formattedDate: formattedDate, // Adiciona a data formatada para exibição
+        formattedDate: formatTimestamp(data.data), // Adiciona a data formatada para exibição
         portal: data.portal,
         endereco: data.endereco,
         url: data.url,
